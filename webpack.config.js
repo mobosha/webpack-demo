@@ -1,9 +1,10 @@
-var htmlWebpackPlugin = require('html-webpack-plugin');
+var htmlWebpackPlugin = require('html-webpack-plugin');  //在html中自动引入webpack模块化的代码的插件
+var path = require('path');  //path是node原生方法，不需要install
 
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: __dirname+'/dist',  //指定绝对路径，filename不需要指定路径
+        path: path.resolve(__dirname+'/dist'),  //指定绝对路径，filename不需要指定路径
         filename: 'js/[name].bundle.js' //hash或者chunkhash 可以认为是文件版本号或者md5值，保证每个文件唯一性
     },
     module: {
@@ -14,8 +15,8 @@ module.exports = {
                 query:{
                     presets:['latest']
                 },
-                include:  __dirname + '/src',
-                exclude:  __dirname + '/node_modules'
+                include: path.resolve(__dirname + 'src') ,  //__dirname 是运行环境下的变量，当前运行环境路径 ，生成绝对路径 ；__dirname其实就是根目录
+                exclude:  path.resolve(__dirname + 'node_modules')
             }
         ]
     },
