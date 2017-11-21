@@ -23,7 +23,7 @@ module.exports = {
                 test: /\.css$/,
                 loader: [
                     'style-loader',
-                    {loader: 'css-loader'},
+                    {loader: 'css-loader', options: { importLoaders: 1 }},  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
                     {
                         loader: 'postcss-loader'
                     }

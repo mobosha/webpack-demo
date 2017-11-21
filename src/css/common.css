@@ -1,3 +1,4 @@
+@import "flex.css";
 body {
     font-size: 16px;
     font-family:  'microsoft yahei';
@@ -7,6 +8,3 @@ body {
     font-size: .625em;
 }
 
-.flex-div{
-    display: flex;
-}
