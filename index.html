@@ -8,16 +8,16 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script type="text/javascript">
 //        行内的引入main.js
-        <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+//        <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
     </script>
 </head>
 <body>
 <!--按需引入需要的js文件 排除main.js-->
-    <% for(var k in htmlWebpackPlugin.files.chunks){ %>
-        <% if (k!=='main') {%>
-            <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[k].entry %>"></script>
-        <% } %>
-    <% } %>
+    <!--<% for(var k in htmlWebpackPlugin.files.chunks){ %>-->
+        <!--<% if (k!=='main') {%>-->
+            <!--<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[k].entry %>"></script>-->
+        <!--<% } %>-->
+    <!--<% } %>-->
     <div>
         <h3>类似js模板引擎写法</h3>
         <%= htmlWebpackPlugin.options.date %>
