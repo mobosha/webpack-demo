@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript">
+//        行内的引入main.js
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+    </script>
+</head>
+<body>
+<!--按需引入需要的js文件 排除main.js-->
+    <% for(var k in htmlWebpackPlugin.files.chunks){ %>
+        <% if (k!=='main') {%>
+            <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[k].entry %>"></script>
+        <% } %>
+    <% } %>
+    <div>
+        <h3>类似js模板引擎写法</h3>
+        <%= htmlWebpackPlugin.options.date %>
+    </div>
+    <div>
+        <h3>类似js模板引擎写法-遍历 files</h3>
+        <% for (var key in htmlWebpackPlugin.files) { %>
+        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+        <% } %>
+        <h3>类似js模板引擎写法-遍历 options 插件参数</h3>
+        <% for (var key in htmlWebpackPlugin.options) { %>
+        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
+        <% } %>
+    </div>
+    <!--我是一行注释-->
+
+</body>
+</html>

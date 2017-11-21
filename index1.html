@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!--在webpack.config.js 添加chunks参数，就不用手动指向生成的模板 如下是手动引入指向的模板-->
+    <!--<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>-->
+</head>
+<body>
+    <div>
+        <h3>类似js模板引擎写法</h3>
+        <%= htmlWebpackPlugin.options.date %>
+    </div>
+    <!--<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.a.entry %>"></script>-->
+    <div>
+        <h3>类似js模板引擎写法-遍历 files</h3>
+        <% for (var key in htmlWebpackPlugin.files) { %>
+        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.files[key]) %>
+        <% } %>
+        <h3>类似js模板引擎写法-遍历 options 插件参数</h3>
+        <% for (var key in htmlWebpackPlugin.options) { %>
+        <%= key %> : <%= JSON.stringify(htmlWebpackPlugin.options[key]) %>
+        <% } %>
+    </div>
+    <!--我是一行注释-->
+
+</body>
+</html>
