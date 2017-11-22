@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -147,84 +147,6 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_common_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_layer_layer__ = __webpack_require__(7);
-
-
-
-
-const App = function () {
-    console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer__["a" /* default */]);
-    }
-
-new App()
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(3);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(5)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/_css-loader@0.28.7@css-loader/index.js??ref--1-1!../../node_modules/_postcss-loader@2.0.8@postcss-loader/lib/index.js!./common.css", function() {
-			var newContent = require("!!../../node_modules/_css-loader@0.28.7@css-loader/index.js??ref--1-1!../../node_modules/_postcss-loader@2.0.8@postcss-loader/lib/index.js!./common.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(undefined);
-// imports
-exports.i(__webpack_require__(4), "");
-
-// module
-exports.push([module.i, "body {\r\n    font-size: 16px;\r\n    font-family:  'microsoft yahei';\r\n    background-color: greenyellow;\r\n}\r\n.s-f-20{\r\n    font-size: .625em;\r\n}\r\n\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".flex-div{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -596,6 +518,84 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_common_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_layer_layer__ = __webpack_require__(7);
+
+
+
+
+const App = function () {
+    console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer__["a" /* default */]);
+    }
+
+new App()
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(4);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(1)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../node_modules/_css-loader@0.28.7@css-loader/index.js??ref--1-1!../../node_modules/_postcss-loader@2.0.8@postcss-loader/lib/index.js!./common.css", function() {
+			var newContent = require("!!../../node_modules/_css-loader@0.28.7@css-loader/index.js??ref--1-1!../../node_modules/_postcss-loader@2.0.8@postcss-loader/lib/index.js!./common.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+exports.i(__webpack_require__(5), "");
+
+// module
+exports.push([module.i, "body {\r\n    font-size: 16px;\r\n    font-family:  'microsoft yahei';\r\n    background-color: greenyellow;\r\n}\r\n.s-f-20{\r\n    font-size: .625em;\r\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".flex-div{\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
@@ -695,7 +695,10 @@ module.exports = function (css) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_less__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_less__);
 // import tpl from './layer.html'
+
 
 function layer() {
     return{
@@ -705,6 +708,51 @@ function layer() {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (layer);
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(9);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(1)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/_css-loader@0.28.7@css-loader/index.js!../../../node_modules/_postcss-loader@2.0.8@postcss-loader/lib/index.js!../../../node_modules/_less-loader@4.0.5@less-loader/dist/cjs.js!./layer.less", function() {
+			var newContent = require("!!../../../node_modules/_css-loader@0.28.7@css-loader/index.js!../../../node_modules/_postcss-loader@2.0.8@postcss-loader/lib/index.js!../../../node_modules/_less-loader@4.0.5@less-loader/dist/cjs.js!./layer.less");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".flex {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\nlayer {\n  width: 600px;\n  height: 200px;\n  background-color: green;\n}\nlayer > div {\n  width: 400px;\n  height: 100px;\n  background-color: red;\n}\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

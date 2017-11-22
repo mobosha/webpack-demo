@@ -22,11 +22,20 @@ module.exports = {
             {
                 test: /\.css$/,
                 loader: [
-                    'style-loader',
+                    {loader: 'style-loader'},
                     {loader: 'css-loader', options: { importLoaders: 1 }},  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
                     {
                         loader: 'postcss-loader'
                     }
+                ]
+            },
+            {
+                test: /\.less$/,
+                loader: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
+                    {loader: 'postcss-loader'},
+                    {loader: 'less-loader'}  //less-loader 会帮你处理 @import 引入进来的 less 样式，但是css-loader 不会帮你处理@import引入进来的css样式
                 ]
             }
         ]
