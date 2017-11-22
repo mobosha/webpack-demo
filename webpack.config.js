@@ -45,15 +45,42 @@ module.exports = {
             {
                 test: /\.tpl$/,  //监测ejs 或者tpl 结尾的文件  test: /\.ejs$/,
                 loader: 'ejs-loader'
+            },
+            // {
+            //     test: /\.(png|jpg|gif|svg)$/i,  //监测ejs 或者tpl 结尾的文件  test: /\.ejs$/,
+            //     loader: 'file-loader', //转换成一张图片，http请求再过来图片，享受优势图片缓存，图片访问率比较高时候合适
+            //     options:{
+            //         name: "[name]-[hash:6].[ext]",  //修改图片打包的输出地址
+            //         outputPath: 'assets/'
+            //     }
+            // },
+            {
+                test: /\.(png|jpg|gif|svg)$/i,  //监测ejs 或者tpl 结尾的文件  test: /\.ejs$/,
+                loaders: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            name: '[name]-[hash:6].[ext]',  //修改图片打包的输出地址
+                            outputPath: 'assets/',
+                            limit: 20000,
+                            mimetype: 'image/png'  //???
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader'  //减小图片的体积大小
+                    }
+                ],  //转换成base64一串字母，只要用到的地方就会有一串base64字母，导致代码冗余，影响文件体积
+
             }
         ]
     },
     plugins: [
-        new htmlWebpackPlugin({
+        new htmlWebpackPlugin({ //自定义化输出html模板
             filename: 'index.html',  //'index-[hash].html',
             template: 'index.html',  //以根目录的index.html为模板
-            inject: 'body'  //1.inject: 'head'所有javascript资源放置在head标签底部，2.inject: 'body'或者inject: true, 所有javascript资源都将放置在body元素的底部,3.或者inject: false 不显示，不添加所有javascript资源
-
+            inject: 'body',  //1.inject: 'head'所有javascript资源放置在head标签底部，2.inject: 'body'或者inject: true, 所有javascript资源都将放置在body元素的底部,3.或者inject: false 不显示，不添加所有javascript资源
+            title: 'Webpack App',
+            exChunks: []
         })
     ]
 }
