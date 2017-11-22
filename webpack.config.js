@@ -41,6 +41,10 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.tpl$/,  //监测ejs 或者tpl 结尾的文件  test: /\.ejs$/,
+                loader: 'ejs-loader'
             }
         ]
     },

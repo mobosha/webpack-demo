@@ -6,7 +6,10 @@ const App = function () {
     console.log(Layer);
     var dom = document.getElementById('app');
     var layer = new Layer();
-    dom.innerHTML = layer.tpl;
+    dom.innerHTML = layer.tpl({
+        name:'john',
+        arr: ['apple', 'xiaomi', 'banana']
+    });
 }
 
 new App();

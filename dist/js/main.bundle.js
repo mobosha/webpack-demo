@@ -534,7 +534,10 @@ const App = function () {
     console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]);
     var dom = document.getElementById('app');
     var layer = new __WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]();
-    dom.innerHTML = layer.tpl;
+    dom.innerHTML = layer.tpl({
+        name:'john',
+        arr: ['apple', 'xiaomi', 'banana']
+    });
 }
 
 new App();
@@ -698,17 +701,17 @@ module.exports = function (css) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_html__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_less__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__layer_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_less__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_tpl__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_tpl___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__layer_tpl__);
 
 
 
 function layer() {
     return{
         name:'layer',
-        tpl: __WEBPACK_IMPORTED_MODULE_0__layer_html___default.a
+        tpl: __WEBPACK_IMPORTED_MODULE_1__layer_tpl___default.a
     }
 }
 
@@ -716,18 +719,12 @@ function layer() {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"layer\">\r\n    <div> this is layer</div>\r\n</div>";
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(10);
+var content = __webpack_require__(9);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -752,7 +749,7 @@ if(false) {
 }
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -764,6 +761,29 @@ exports.push([module.i, ".flex {\n  display: -webkit-box;\n  display: -ms-flexbo
 
 // exports
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = function (obj) {
+obj || (obj = {});
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+__p += '<div class="layer">\r\n    <div> this is ' +
+((__t = ( name )) == null ? '' : __t) +
+' layer</div>\r\n    <!--下边是 ejs模板 模板引擎写法-->\r\n    ';
+ for (var i = 0;i < arr.length; i++) {;
+__p += '\r\n        ' +
+((__t = ( arr[i] )) == null ? '' : __t) +
+'\r\n    ';
+ } ;
+__p += '\r\n</div>';
+
+}
+return __p
+}
 
 /***/ })
 /******/ ]);
