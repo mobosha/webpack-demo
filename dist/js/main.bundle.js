@@ -525,16 +525,19 @@ function updateLink (link, options, obj) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_common_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_common_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_layer_layer__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__ = __webpack_require__(7);
 
 
 
 
 const App = function () {
-    console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer__["a" /* default */]);
-    }
+    console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]);
+    var dom = document.getElementById('app');
+    var layer = new __WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]();
+    dom.innerHTML = layer.tpl;
+}
 
-new App()
+new App();
 
 /***/ }),
 /* 3 */
@@ -695,15 +698,17 @@ module.exports = function (css) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_less__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_less__);
-// import tpl from './layer.html'
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_html__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__layer_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__layer_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_less__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__layer_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__layer_less__);
+
 
 
 function layer() {
     return{
         name:'layer',
-        tpl: tpl
+        tpl: __WEBPACK_IMPORTED_MODULE_0__layer_html___default.a
     }
 }
 
@@ -711,12 +716,18 @@ function layer() {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"layer\">\r\n    <div> this is layer</div>\r\n</div>";
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(9);
+var content = __webpack_require__(10);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -741,7 +752,7 @@ if(false) {
 }
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -749,7 +760,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\nlayer {\n  width: 600px;\n  height: 200px;\n  background-color: green;\n}\nlayer > div {\n  width: 400px;\n  height: 100px;\n  background-color: red;\n}\n", ""]);
+exports.push([module.i, ".flex {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.layer {\n  width: 600px;\n  height: 200px;\n  background-color: red;\n}\n.layer > div {\n  width: 400px;\n  height: 100px;\n  background-color: darkgreen;\n}\n", ""]);
 
 // exports
 

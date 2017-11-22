@@ -37,6 +37,10 @@ module.exports = {
                     {loader: 'postcss-loader'},
                     {loader: 'less-loader'}  //less-loader 会帮你处理 @import 引入进来的 less 样式，但是css-loader 不会帮你处理@import引入进来的css样式
                 ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             }
         ]
     },
