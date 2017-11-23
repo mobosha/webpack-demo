@@ -1,11 +1,11 @@
 import './css/common.css';
 import Layer from './components/layer/layer.js';
 // var $ = require('jquery');
- // require('./jqGreen');
+ require('./jqGreen');
 
 const App = function () {
     console.log($('#app'));
-    // $('#app').green();
+    $('#app').green();
     $('#info').html('jquery is loaded.');
     console.log(Layer);
     var dom = document.getElementById('app');
