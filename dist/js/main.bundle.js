@@ -529,11 +529,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // var $ = require('jquery');
-__webpack_require__(13);
+ // require('./jqGreen');
 
 const App = function () {
     console.log($('#app'));
-    $('#app').green();
+    // $('#app').green();
+    $('#info').html('jquery is loaded.');
     console.log(__WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]);
     var dom = document.getElementById('app');
     var layer = new __WEBPACK_IMPORTED_MODULE_1__components_layer_layer_js__["a" /* default */]();
@@ -804,33 +805,6 @@ return __p
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "assets/b-4128f4.gif";
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-//UMD模块方案
-(function(window,factory){
-    if(true){
-        module.exports = factory(__webpack_require__(14));
-    }else if(typeof define === 'function' && define.amd){
-        define(['jquery'],factory);
-    }else{
-        factor();
-    }
-})(window,function($){
-    $.fn.green = function(){
-        $(this).each(function(){
-            $(this).css('color','green');
-        });
-    }
-});
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = window.jQuery;
 
 /***/ })
 /******/ ]);

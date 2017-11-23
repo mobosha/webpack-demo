@@ -1,4 +1,6 @@
+var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');  //在html中自动引入webpack模块化的代码的插件
+var ignorePlugin = new webpack.IgnorePlugin(/\.\/src\/assets\/plugins\/jquery.js/);  //正则匹配路径
 var path = require('path');  //path是node原生方法，不需要install
 
 module.exports = {
@@ -84,6 +86,7 @@ module.exports = {
             inject: 'body',  //1.inject: 'head'所有javascript资源放置在head标签底部，2.inject: 'body'或者inject: true, 所有javascript资源都将放置在body元素的底部,3.或者inject: false 不显示，不添加所有javascript资源
             title: 'Webpack App',
             exChunks: []
-        })
+        }),
+        ignorePlugin
     ]
 }
