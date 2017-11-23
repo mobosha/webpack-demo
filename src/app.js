@@ -1,8 +1,9 @@
 import './css/common.css';
 import Layer from './components/layer/layer.js';
-
+import jq from './assets/plugins/jquery';
 
 const App = function () {
+    console.log(jq);
     console.log(Layer);
     var dom = document.getElementById('app');
     var layer = new Layer();
