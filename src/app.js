@@ -1,9 +1,11 @@
 import './css/common.css';
 import Layer from './components/layer/layer.js';
-import jq from './assets/plugins/jquery';
+// var $ = require('jquery');
+require('./jqGreen');
 
 const App = function () {
-    console.log(jq);
+    console.log($('#app'));
+    $('#app').green();
     console.log(Layer);
     var dom = document.getElementById('app');
     var layer = new Layer();

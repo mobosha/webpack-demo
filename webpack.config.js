@@ -8,6 +8,9 @@ module.exports = {
         path: path.resolve(__dirname+'/dist'),  //指定绝对路径，filename不需要指定路径
         filename: 'js/[name].bundle.js' //hash或者chunkhash 可以认为是文件版本号或者md5值，保证每个文件唯一性
     },
+    externals:{
+        'jquery':'window.jQuery'
+    },
     module: {
         loaders:[
             {
