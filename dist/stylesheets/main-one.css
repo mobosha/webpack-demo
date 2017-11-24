@@ -1,0 +1,13 @@
+.flex-div{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}body {
+    font-size: 16px;
+    font-family:  'microsoft yahei';
+    background-color: greenyellow;
+}
+.s-f-20{
+    font-size: .625em;
+}
+

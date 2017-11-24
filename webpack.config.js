@@ -1,5 +1,11 @@
 var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');  //在html中自动引入webpack模块化的代码的插件
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// Create multiple instances
+const extractCSS = new ExtractTextPlugin('stylesheets/[name]-one.css');
+const extractLESS = new ExtractTextPlugin('stylesheets/[name]-two.css');
+
 var ignorePlugin = new webpack.IgnorePlugin(/\.\/src\/assets\/plugins\/jquery.js/);  //正则匹配路径
 var path = require('path');  //path是node原生方法，不需要install
 
@@ -59,22 +65,39 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: [
-                    {loader: 'style-loader'},
-                    {loader: 'css-loader', options: { importLoaders: 1 }},  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
-                    {
-                        loader: 'postcss-loader'
-                    }
-                ]
+                loader:  extractCSS.extract({
+                    fallback: 'style-loader',
+                    use:[
+                        // {loader: 'style-loader'},
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                sourceMap: true
+                            }
+                        },  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
+                        {
+                            loader: 'postcss-loader'
+                        }
+                    ]
+                })
             },
             {
-                test: /\.less$/,
-                loader: [
-                    {loader: 'style-loader'},
-                    {loader: 'css-loader'},  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
-                    {loader: 'postcss-loader'},
-                    {loader: 'less-loader'}  //less-loader 会帮你处理 @import 引入进来的 less 样式，但是css-loader 不会帮你处理@import引入进来的css样式
-                ]
+                test: /\.less$/i,  //i 不区分大小写 less LESS
+                loader: extractLESS.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        // {loader: 'style-loader'},
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },  //importLoaders  在cssloader之后指定几个（前边定义1就是1个）数量的loader来处理import进来的资源
+                        {loader: 'postcss-loader'},
+                        {loader: 'less-loader'}  //less-loader 会帮你处理 @import 引入进来的 less 样式，但是css-loader 不会帮你处理@import引入进来的css样式
+                    ]
+                })
             },
             {
                 test: /\.html$/,
@@ -120,7 +143,10 @@ module.exports = {
             title: 'Webpack App',
             exChunks: []
         }),
+        extractCSS,
+        extractLESS,
         ignorePlugin,
-        // new webpack.HotModuleReplacementPlugin()   //貌似没啥用处？
+        // new webpack.HotModuleReplacementPlugin()   //貌似没啥用处？ 热加载 webpack-dev-server 前身貌似
+        // new ExtractTextPlugin("styles.css")
     ]
 }
