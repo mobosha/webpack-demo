@@ -5,10 +5,15 @@ var path = require('path');  //path是node原生方法，不需要install
 
 module.exports = {
     // context: __dirname,
+    // noParse: [],
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname+'/dist'),  //指定绝对路径，filename不需要指定路径
         filename: 'js/[name].bundle.js' //hash或者chunkhash 可以认为是文件版本号或者md5值，保证每个文件唯一性
+    },
+    devServer: {
+        inline: true,
+        port: 8099
     },
     externals:{
         'jquery':'window.jQuery'
@@ -19,6 +24,7 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 query:{
+                    cacheDirectory: './webpack_cache/',
                     presets:['latest']
                 },
                 include: path.resolve(__dirname + 'src') ,  //__dirname 是运行环境下的变量，当前运行环境路径 ，生成绝对路径 ；__dirname其实就是根目录
@@ -87,6 +93,7 @@ module.exports = {
             title: 'Webpack App',
             exChunks: []
         }),
-        ignorePlugin
+        ignorePlugin,
+        new webpack.HotModuleReplacementPlugin()
     ]
 }

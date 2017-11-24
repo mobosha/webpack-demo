@@ -15,7 +15,7 @@ const App = function () {
     //tpl相当于函数可以传递参数，通过模板引擎 显示参数到模板中
     dom.innerHTML = layer.tpl({
         name:'john',
-        arr: ['apple', 'xiaomi', 'banana']
+        arr: ['apple1', 'xiaomi', 'banana']
     });
 }
 
