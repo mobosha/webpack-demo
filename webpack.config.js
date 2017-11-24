@@ -9,11 +9,38 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname+'/dist'),  //指定绝对路径，filename不需要指定路径
-        filename: 'js/[name].bundle.js' //hash或者chunkhash 可以认为是文件版本号或者md5值，保证每个文件唯一性
+        // publicPath: './dist', //这里必须是反斜杠且devServer.proxy.target必须存在，不然到时候index.html  script src路劲会找不到
+        filename: 'js/[name].bundle.js',  //hash或者chunkhash 可以认为是文件版本号或者md5值，保证每个文件唯一性
+        //chunkFilename: "chunk/[name].chunk.js"
     },
     devServer: {
-        inline: true,
-        port: 8099
+        inline: true, //设置为true，代码有变化，浏览器端刷新。
+        open: true, //:在默认浏览器打开url(webpack-dev-server版本> 2.0)
+        port: 8088,  //http://blog.csdn.net/qq_16559905/article/details/78277642,有关这块的配置
+        // compress: true, //使用gzip压缩
+        // host: '10.0.0.9',//ip地址，同时也可以设置成是localhost,
+        progress: true, //让编译的输出内容带有进度和颜色
+        historyApiFallback: true, //回退:支持历史API。
+        contentBase: "dist/", //本地服务器所加载的页面所在的目录
+        // proxy: {
+        //     '*': {
+        //         target: 'http://127.0.0.1:80', //跨域Ip地址
+        //         secure: false
+        //     }
+        // },
+        // proxy: { //貌似修改接口请求地址
+        //     '/api': {
+        //         //target: 'https://api.github.com',
+        //         //pathRewrite: {'^/api' : '/campaign_huggies/t3store_freeuse/admin'}, //给地址里的api改成/campaign_huggies/t3store_freeuse/admin；这样 http://localhost:8080/api/getUser.php 的请求就是后端的接口 http://user.reekly.com/campaign_huggies/t3store_freeuse/admin/getUser.php 了
+        //         target: "http://localhost:3000", //对/api用户的请求现在会将请求代理到http://localhost:3000/api/users
+        //         pathRewrite: {"^/api" : ""},  //如果你不想/api传递（暴露），我们需要重写路径
+        //         secure: false, //target: "https://other-server.example.com",地址里边有https：在HTTPS上运行的后端服务器将使用无效证书，默认情况下不会被接受。如果你想要，像这样修改你的配置：
+        //         changeOrigin: true
+        //     }
+        // },
+        // proxy: { //ajax请求
+        //     '/ajax/*': 'http://your.backend/'
+        // }
     },
     externals:{
         'jquery':'window.jQuery'
@@ -94,6 +121,6 @@ module.exports = {
             exChunks: []
         }),
         ignorePlugin,
-        new webpack.HotModuleReplacementPlugin()
+        // new webpack.HotModuleReplacementPlugin()   //貌似没啥用处？
     ]
 }

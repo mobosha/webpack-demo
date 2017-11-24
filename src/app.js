@@ -5,6 +5,7 @@ import Layer from './components/layer/layer.js';
 
 const App = function () {
     console.log($('#app'));
+
     $('#app').green();
     $('#info').html('jquery is loaded.');
     console.log(Layer);
@@ -15,7 +16,7 @@ const App = function () {
     //tpl相当于函数可以传递参数，通过模板引擎 显示参数到模板中
     dom.innerHTML = layer.tpl({
         name:'john',
-        arr: ['apple1', 'xiaomi', 'banana']
+        arr: ['apple', 'xiaomi', 'banana']
     });
 }
 
